@@ -216,6 +216,7 @@ fieldset {
     padding: 0;
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 1.25rem;
 }
 
@@ -234,10 +235,16 @@ fieldset {
     background: var(--lime-green);
     color: var(--black);
 }
+
 .character__input:checked::before {
-    content: url("/assets/images/icon-check.svg");
-    height: 100%;
-    margin-inline: 0.1875rem;
+    content: "";
+    display: inline-block;
+    background-image: url("/assets/images/icon-check.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 0.875rem;
+    height: 0.75rem;
+    margin: 0.3125rem 0.1875rem 0.1875rem 0.1875rem;
 }
 
 .strength {
@@ -290,6 +297,10 @@ fieldset {
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+
+.generate {
+    color: var(--black);
 }
 
 @media screen and (min-width: 40rem) {
