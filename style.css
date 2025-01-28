@@ -129,17 +129,22 @@ fieldset {
 
 .copied {
     color: var(--lime-green);
+    font: var(--body);
 }
 
 .clipboard {
     background: none;
     border: none;
+    color: var(--lime-green);
+}
+
+.clipboard:hover {
+    color: var(--white);
 }
 
 .clipboard__icon {
     max-width: none;
-    width: 1.09375rem;
-    height: 1.25rem;
+    scale: calc(5 / 6);
 }
 
 .generator {
@@ -164,7 +169,7 @@ fieldset {
     align-items: center;
 }
 
-.length--value {
+.slider--value {
     font: var(--heading-medium);
     color: var(--lime-green);
 }
@@ -186,6 +191,13 @@ fieldset {
     height: 1.75rem;
     background: var(--white);
     border-radius: 50%;
+}
+
+.slider::-webkit-slider-thumb:active,
+.slider::-webkit-slider-thumb:hover,
+.slider::-webkit-slider-thumb:focus {
+    background: var(--black);
+    border: 0.125rem solid var(--lime-green);
 }
 
 .slider::-moz-range-thumb {
@@ -273,6 +285,8 @@ fieldset {
 }
 
 .bars {
+    width: 4rem;
+    height: 1.75rem;
     display: flex;
     gap: 0.5rem;
 }
@@ -291,6 +305,17 @@ fieldset {
     display: grid;
     justify-content: center;
     align-items: center;
+}
+
+.submit:hover {
+    background-color: var(--black);
+    color: var(--lime-green);
+    border: 0.125rem solid var(--lime-green);
+}
+
+.submit:hover .generate {
+    color: var(--lime-green);
+    cursor: pointer;
 }
 
 .submit__content {
@@ -322,8 +347,7 @@ fieldset {
     }
 
     .clipboard__icon {
-        width: 1.3125rem;
-        height: 1.5rem;
+        scale: 1;
     }
 
     .generator {
@@ -344,6 +368,10 @@ fieldset {
 
     .characters {
         gap: 1.25rem;
+    }
+
+    .strength {
+        padding: 1.25rem 2rem;
     }
 
     .strength__title {
@@ -369,22 +397,26 @@ fieldset {
     display: none;
 }
 
-.too-weak .one {
+.empty {
+    opacity: 0.5;
+}
+
+.bars[data-strength="vulnerable"] .one {
     background: var(--red);
     outline: none;
 }
 
-.weak .two {
+.bars[data-strength="weak"] .two {
     background: var(--orange);
     outline: none;
 }
 
-.medium .three {
+.bars[data-strength="medium"] .three {
     background: var(--yellow);
     outline: none;
 }
 
-.strong .four {
+.bars[data-strength="strong"] .four {
     background: var(--lime-green);
     outline: none;
 }
