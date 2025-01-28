@@ -1,29 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+        <title>Frontend Mentor | Password generator app</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+        <script defer src="/script.js"></script>
+    </head>
+    <body>
+        <main>
+            <section class="container">
+                <form class="form">
+                    <h1 class="title">Password Generator</h1>
+                    <fieldset class="copy">
+                        <input
+                            class="password"
+                            type="text"
+                            disabled
+                            placeholder="P4$5W0rD!"
+                            value="PTx1f5DaFX"
+                        />
+                        <div class="copy__container">
+                            <span class="copied invisible">COPIED</span>
+                            <button class="clipboard">
+                                <img
+                                    class="clipboard__icon"
+                                    src="/assets/images/icon-copy.svg"
+                                    alt="Copy"
+                                />
+                            </button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="generator">
+                        <div class="controls">
+                            <div class="length">
+                                <div class="length__container">
+                                    <label for="length">Character Length</label>
+                                    <span
+                                        class="length--value"
+                                        id="length--value"
+                                        >0</span
+                                    >
+                                </div>
+                                <input
+                                    class="slider"
+                                    id="slider"
+                                    name="length"
+                                    type="range"
+                                    value="0"
+                                    min="0"
+                                    max="20"
+                                />
+                            </div>
+                            <ul class="characters">
+                                <li class="characters__item">
+                                    <input
+                                        class="character__input"
+                                        id="uppercase"
+                                        name="uppercase"
+                                        type="checkbox"
+                                    />
+                                    <label class="character__label" for="uppercase"
+                                        >Include Uppercase Letters</label
+                                    >
+                                </li>
+                                <li class="characters__item">
+                                    <input
+                                        class="character__input"
+                                        id="lowercase"
+                                        name="lowercase"
+                                        type="checkbox"
+                                    />
+                                    <label class="character__label" for="lowercase"
+                                        >Include Lowercase Letters</label
+                                    >
+                                </li>
+                                <li class="characters__item">
+                                    <input
+                                        class="character__input"
+                                        id="numbers"
+                                        name="numbers"
+                                        type="checkbox"
+                                    />
+                                    <label class="character__label" for="numbers">Include Numbers</label>
+                                </li>
+                                <li class="characters__item">
+                                    <input
+                                        class="character__input"
+                                        id="symbols"
+                                        name="symbols"
+                                        type="checkbox"
+                                    />
+                                    <label class="character__label" for="symbols">Include Symbols</label>
+                                </li>
+                            </ul>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Password generator app</title>
-</head>
-<body>
-
-  Password Generator
-
-  P4$5W0rD!
-
-  Character Length
-
-  Include Uppercase Letters
-  Include Lowercase Letters
-  Include Numbers
-  Include Symbols
-
-  Strength
-
-  Generate
-
-</body>
+                            <div class="strength">
+                                <p class="strength__title">Strength</p>
+                                <div class="strength__container">
+                                    <span id="strength-value" class="strength__value">Medium</span>
+                                    <div class="bars medium">
+                                        <div class="bar one two three four"></div>
+                                        <div class="bar two three four"></div>
+                                        <div class="bar three four"></div>
+                                        <div class="bar four"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="submit">
+                            <div class="submit__content">
+                                <p class="generate">GENERATE</p>
+                                <img class="right__icon" src="/assets/images/icon-arrow-right.svg" alt="Right Arrow">
+                            </div>
+                        </button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+    </body>
 </html>
