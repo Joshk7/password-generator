@@ -275,6 +275,7 @@ fieldset {
     background: var(--black);
     outline: 0.125rem solid var(--white);
     outline-offset: -0.125rem;
+    transition: all 0.3s ease-out;
 }
 
 .character__input:checked {
@@ -283,13 +284,10 @@ fieldset {
     color: var(--black);
 }
 
-.character__input:hover {
-    outline: 0.125rem solid var(--dark-gray);
-    cursor: pointer;
-}
-
+.character__input:hover,
 .character__input:focus {
-    outline: 0.125rem solid var(--dark-gray);
+    outline: 0.125rem solid var(--lime-green);
+    cursor: pointer;
 }
 
 .character__input:checked::before {
@@ -301,6 +299,11 @@ fieldset {
     width: 0.875rem;
     height: 0.75rem;
     margin: 0.3125rem 0.1875rem 0.1875rem 0.1875rem;
+}
+
+.character__input:checked:focus, 
+.character__input:checked:hover {
+    outline: 0.125rem solid var(--white);
 }
 
 .strength {
