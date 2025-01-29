@@ -248,6 +248,7 @@ fieldset {
 .character__input {
     -webkit-appearance: none;
     appearance: none;
+    border-radius: none;
     width: 1.25rem;
     height: 1.25rem;
     background: var(--black);
