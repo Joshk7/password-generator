@@ -5,8 +5,11 @@ const clipboard = document.getElementById("clipboard");
 const rangeSlider = document.getElementById("slider");
 const sliderValue = document.getElementById("slider--value");
 const thumbWidth = 28;
+const checkboxes = form.querySelectorAll("input[type=checkbox]");
+
 const strengthValue = document.getElementById("strength-value");
 const strengthBars = document.getElementById("strength-bars");
+
 
 const generatePassword = ({
     length,
@@ -127,16 +130,10 @@ const validate = ({ length, uppercase, lowercase, numbers, symbols }) => {
     return true;
 };
 
-const handleClipboardClick = (e) => {
+const handleClipboardClick = async (e) => {
     if (password.dataset.value) {
-        navigator.clipboard
-            .writeText(password.dataset.value)
-            .then(() => {
-                copied.classList.remove("invisible");
-            })
-            .catch((err) => {
-                console.error("Failed to copy: ", err);
-            });
+        await navigator.clipboard.writeText(password.dataset.value);
+        copied.classList.remove("invisible");
     }
 };
 
@@ -150,6 +147,19 @@ const handleSliderInput = (e) => {
     }%, var(--black) ${percent - offset}%, var(--black) 100%`;
     sliderValue.textContent = value;
 };
+
+const handleSliderEnter = (e) => {
+    if (e.key == "Enter") {
+        e.preventDefault();
+    }
+}
+
+const handleCheckboxEnter = (e) => {
+    if (e.key == "Enter") {
+        e.preventDefault();
+        e.target.click();
+    }
+}
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -184,4 +194,8 @@ const handleSubmit = (e) => {
 
 clipboard.addEventListener("click", handleClipboardClick);
 rangeSlider.addEventListener("input", handleSliderInput);
+rangeSlider.addEventListener("keypress", handleSliderEnter);
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("keypress", handleCheckboxEnter);
+})
 form.addEventListener("submit", handleSubmit);

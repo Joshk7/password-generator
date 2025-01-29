@@ -147,6 +147,12 @@ fieldset {
 
 .clipboard:hover {
     color: var(--white);
+    cursor: pointer;
+}
+
+.clipboard:focus {
+    color: var(--white);
+    outline: none;
 }
 
 .clipboard__icon {
@@ -197,6 +203,10 @@ fieldset {
     outline: none;
 }
 
+.slider:hover {
+    cursor: pointer;
+}
+
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -206,9 +216,8 @@ fieldset {
     border-radius: 50%;
 }
 
-.slider::-webkit-slider-thumb:active,
-.slider::-webkit-slider-thumb:hover,
-.slider::-webkit-slider-thumb:focus {
+.slider:focus::-webkit-slider-thumb,
+.slider:hover::-webkit-slider-thumb {
     background: var(--black);
     border: 0.125rem solid var(--lime-green);
 }
@@ -222,12 +231,24 @@ fieldset {
     border-radius: 50%;
 }
 
+.slider:focus::-moz-range-thumb,
+.slider:hover::-moz-range-thumb {
+    background: var(--black);
+    border: 0.125rem solid var(--lime-green);
+}
+
 .slider::-ms-thumb {
     appearance: none;
     width: 1.75rem;
     height: 1.75rem;
     background: var(--white);
     border-radius: 50%;
+}
+
+.slider:focus::-ms-thumb,
+.slider:hover::-ms-thumb {
+    background: var(--black);
+    border: 0.125rem solid var(--lime-green);
 }
 
 .characters {
@@ -260,6 +281,15 @@ fieldset {
     outline: none;
     background: var(--lime-green);
     color: var(--black);
+}
+
+.character__input:hover {
+    outline: 0.125rem solid var(--dark-gray);
+    cursor: pointer;
+}
+
+.character__input:focus {
+    outline: 0.125rem solid var(--dark-gray);
 }
 
 .character__input:checked::before {
@@ -321,14 +351,12 @@ fieldset {
     align-items: center;
 }
 
-.submit:hover {
+.submit:hover, 
+.submit:focus {
     background-color: var(--black);
     color: var(--lime-green);
     border: 0.125rem solid var(--lime-green);
-}
-
-.submit:hover .generate {
-    color: var(--lime-green);
+    outline: none;
     cursor: pointer;
 }
 
@@ -339,7 +367,7 @@ fieldset {
 }
 
 .generate {
-    color: var(--black);
+    color: inherit;
 }
 
 @media screen and (min-width: 40rem) {
