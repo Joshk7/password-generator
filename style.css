@@ -321,6 +321,7 @@ fieldset {
 .strength__container {
     display: flex;
     gap: 1rem;
+    height: 2rem;
 }
 
 .strength__value {
